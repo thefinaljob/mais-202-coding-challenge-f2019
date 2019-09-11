@@ -42,6 +42,7 @@ def look_loan(ident, loan_type):
 
     #conducts linear search of the loan data to see where the corresponding ID and loan
     #amounts are found
+    #counts number of each type of category
     for second_row in loan_data:
 
             check_ident = str(second_row[0])
