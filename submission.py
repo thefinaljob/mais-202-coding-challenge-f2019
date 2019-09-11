@@ -27,7 +27,7 @@ def do_everything():
     plt.ylabel('Average loan amount ($)')
     plt.title('Average loan amounts per home ownership')  
     plt.autoscale()
-    plt.savefig('foo.png', bbox_inches='tight')
+    plt.savefig('submission.png', bbox_inches='tight')
 
 def look_loan(ident, loan_type):
 
