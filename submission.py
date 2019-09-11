@@ -6,6 +6,10 @@ mortgage = 0.0
 rent = 0.0
 own = 0.0
 
+mort_amt = 0.0
+rent_amt = 0.0
+own_amt = 0.0
+
 def do_everything():
 
     home_data =csv.reader(open('home_ownership_data.csv', 'r'),delimiter=',')
@@ -21,7 +25,7 @@ def do_everything():
     
     #Setting parameters of the graph here
     names = ['MORTGAGE', 'OWN', 'RENT']
-    values = [mortgage, own, rent]
+    values = [float(mortgage/mort_amt), float(own/own_amt), float(rent/rent_amt)]
     plt.bar(names, values) 
     plt.xlabel('Home ownership')
     plt.ylabel('Average loan amount ($)')
@@ -47,12 +51,18 @@ def look_loan(ident, loan_type):
                 if loan_type == 'MORTGAGE':
                     global mortgage 
                     mortgage += amt
+                    global mort_amt
+                    mort_amt += 1.0
                 elif loan_type == 'RENT':
                     global rent 
                     rent += amt
+                    global rent_amt
+                    rent_amt += 1.0
                 elif loan_type == 'OWN':
                     global own 
                     own += amt
+                    global own_amt
+                    own_amt += 1.0
                 return
 
 do_everything()
